@@ -5,6 +5,14 @@
 .classpath
 .project
 .settings/
+.mvn/
 
 # Arquivos temporários gerais
 *.class
+
+.factorypath
+HELP.md
+mvnw
+mvnw.cmd
+
+
