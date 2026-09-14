@@ -1,0 +1,10 @@
+# Maven (Arquivos compilados)
+/target/
+
+# Eclipse (Configurações do ambiente)
+.classpath
+.project
+.settings/
+
+# Arquivos temporários gerais
+*.class
