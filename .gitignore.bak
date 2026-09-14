@@ -12,4 +12,9 @@
 
 .factorypath
 HELP.md
+mvnw
+mvnw.cmd
+.gitattributes
+.gitignore
+
 
