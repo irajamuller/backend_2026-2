@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.unisinos.store.model.UnidadeFederativa;
 import br.edu.unisinos.store.repository.UnidadeFederativaRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class UnidadeFederativaService {
@@ -15,15 +16,23 @@ public class UnidadeFederativaService {
 	@Autowired
 	private UnidadeFederativaRepository unidadeFederativaRepository;
 	
-	public List<UnidadeFederativa> getAll() {
-		return unidadeFederativaRepository.getAll();
+	public List<UnidadeFederativa> getAll(String sigla) {
+		if (sigla != null) {
+			return unidadeFederativaRepository.findBySigla(sigla);
+		}
+		return unidadeFederativaRepository.findAll();
 	}
 	
 	public UnidadeFederativa getOne(UUID id) {
-		return unidadeFederativaRepository.getOne(id);
+		return unidadeFederativaRepository.findById(id).orElse(null);
 	}
 	
-	public void save(UnidadeFederativa unidadeFederativa) {
-		unidadeFederativaRepository.save(unidadeFederativa);
+	public UnidadeFederativa save(UnidadeFederativa unidadeFederativa) {
+		return unidadeFederativaRepository.save(unidadeFederativa);
 	}
+	
+	public void delete(UUID id) {
+		unidadeFederativaRepository.deleteById(id);
+	}
+	
 }
